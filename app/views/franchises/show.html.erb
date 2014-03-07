@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @franchise.number %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @franchise.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @franchise.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @franchise.email %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @franchise.location_id %>
+</p>
+
+<%= link_to 'Edit', edit_client_location_franchise_path(@client, @franchise) %> |
+<%= link_to 'Back', client_location_franchises_path(@client) %>

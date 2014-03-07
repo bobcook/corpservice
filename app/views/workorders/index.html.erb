@@ -1,0 +1,53 @@
+<h1>Listing workorders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Po</th>
+      <th>Estimate</th>
+      <th>Line item</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Previous action</th>
+      <th>Next action due</th>
+      <th>Schedule</th>
+      <th>Invoice</th>
+      <th>Invoice total</th>
+      <th>Notes</th>
+      <th>Franchises</th>
+      <th>Locations</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @workorders.each do |workorder| %>
+      <tr>
+        <td><%= workorder.number %></td>
+        <td><%= workorder.po %></td>
+        <td><%= workorder.estimate_id %></td>
+        <td><%= workorder.line_item %></td>
+        <td><%= workorder.quantity %></td>
+        <td><%= workorder.price %></td>
+        <td><%= workorder.previous_action %></td>
+        <td><%= workorder.next_action_due %></td>
+        <td><%= workorder.schedule %></td>
+        <td><%= workorder.invoice %></td>
+        <td><%= workorder.invoice_total %></td>
+        <td><%= workorder.notes %></td>
+        <td><%= workorder.Franchises %></td>
+        <td><%= workorder.Locations %></td>
+        <td><%= link_to 'Show', workorder %></td>
+        <td><%= link_to 'Edit', edit_workorder_path(workorder) %></td>
+        <td><%= link_to 'Destroy', workorder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to 'New Workorder', new_client_workorders_path(@client) %>

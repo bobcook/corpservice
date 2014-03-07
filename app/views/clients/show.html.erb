@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @client.account %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @client.contact %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @client.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @client.email %>
+</p>
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %> |
+<%= link_to 'Add Location', new_client_location_path(@client) %>
+
+<h1>Listing locations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @client.locations.each do |location| %>
+      <tr>
+        <td><%= location.code %></td>
+        <td><%= location.address1 %></td>
+        <td><%= location.address2 %></td>
+        <td><%= location.city %></td>
+        <td><%= location.state %></td>
+        <td><%= location.zip %></td>
+        <td><%= location.phone %></td>
+        <td><%= location.email %></td>
+
+        <td><%= link_to 'Show', client_location_path(@client, location) %></td>
+        <td><%= link_to 'Edit', edit_client_location_path(@client, location) %></td>
+        <td><%= link_to 'Destroy', [@client, location], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Location', new_client_location_path(@client) %>
+

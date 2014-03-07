@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @workorder.number %>
+</p>
+
+<p>
+  <strong>Po:</strong>
+  <%= @workorder.po %>
+</p>
+
+<p>
+  <strong>Estimate:</strong>
+  <%= @workorder.estimate_id %>
+</p>
+
+<p>
+  <strong>Line item:</strong>
+  <%= @workorder.line_item %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @workorder.quantity %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @workorder.price %>
+</p>
+
+<p>
+  <strong>Previous action:</strong>
+  <%= @workorder.previous_action %>
+</p>
+
+<p>
+  <strong>Next action due:</strong>
+  <%= @workorder.next_action_due %>
+</p>
+
+<p>
+  <strong>Schedule:</strong>
+  <%= @workorder.schedule %>
+</p>
+
+<p>
+  <strong>Invoice:</strong>
+  <%= @workorder.invoice %>
+</p>
+
+<p>
+  <strong>Invoice total:</strong>
+  <%= @workorder.invoice_total %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @workorder.notes %>
+</p>
+
+<p>
+  <strong>Franchises:</strong>
+  <%= @workorder.Franchises %>
+</p>
+
+<p>
+  <strong>Locations:</strong>
+  <%= @workorder.Locations %>
+</p>
+
+<%= link_to 'Edit', edit_workorder_path(@workorder) %> |
+<%= link_to 'Back', workorders_path %>

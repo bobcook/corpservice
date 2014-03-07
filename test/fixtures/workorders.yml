@@ -1,0 +1,30 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  po: MyString
+  estimate_id: MyString
+  line_item: MyString
+  quantity: 1
+  price: 1.5
+  previous_action: MyString
+  next_action_due: 2014-02-05
+  schedule: 2014-02-05
+  invoice: 2014-02-05
+  invoice_total: 1.5
+  notes: MyText
+
+two:
+  number: MyString
+  po: MyString
+  estimate_id: MyString
+  line_item: MyString
+  quantity: 1
+  price: 1.5
+  previous_action: MyString
+  next_action_due: 2014-02-05
+  schedule: 2014-02-05
+  invoice: 2014-02-05
+  invoice_total: 1.5
+  notes: MyText
+
