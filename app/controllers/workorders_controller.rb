@@ -1,7 +1,6 @@
 class WorkordersController < ApplicationController
   before_action :set_workorder, only: [:show, :edit, :update, :destroy]
-  before_action :load_client, :load_location,  :load_franchise, only: [:destroy,:new,:edit,:update,  :show, :index, :create]
-
+  before_action :load_client, :load_location,  :load_franchise, only: [:destroy, :new, :edit, :update, :show, :index, :create]
 
   # GET /workorders
   # GET /workorders.json
@@ -31,7 +30,7 @@ class WorkordersController < ApplicationController
 
     respond_to do |format|
       if @workorder.save
-        format.html { redirect_to [@client,@location,@franchise, @workorder ], notice: 'Workorder was successfully created.' }
+        format.html { redirect_to [@client,@location,@franchise, @workorder], notice: 'Workorder was successfully created.' }
         format.json { render action: 'show', status: :created, location: @workorder }
       else
         format.html { render action: 'new' }
@@ -59,7 +58,7 @@ class WorkordersController < ApplicationController
   def destroy
     @workorder.destroy
     respond_to do |format|
-      format.html { redirect_to client_location_franchise_workorders_path(@client, @location,@franchise) }
+      format.html { redirect_to client_location_franchise_workorders_path(@client, @location, @franchise) }
       format.json { head :no_content }
     end
   end
@@ -70,7 +69,7 @@ class WorkordersController < ApplicationController
       @workorder = Workorder.find(params[:id])
     end
     
-       def load_franchise
+    def load_franchise
       @franchise = Franchise.find(params[:franchise_id])
     end
 
