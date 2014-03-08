@@ -1,28 +1,25 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I am running out of time to get this project running.
+
+The application keeps track of workorders.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.0.0p247
 
-* System dependencies
+* System dependencies rails 4 - not much else.
 
-* Configuration
+* Database SQlite3
 
-* Database creation
+* How to run the test suite - just run rake
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* There are 4 nested databases;
+  Clients
+  Locations
+  Franchises
+  Workorders
+  
+  The application is already able to add Clients and Locations.  I need to be able to add franchises and workorders.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
