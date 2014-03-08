@@ -22,9 +22,9 @@
         <td><%= franchise.phone %></td>
         <td><%= franchise.email %></td>
         <td><%= franchise.location_id %></td>
-        <td><%= link_to 'Show', client_location_franchise_path(@client, location, franchise) %></td>
-        <td><%= link_to 'Edit', edit_client_location_franchise_path(@client, location, franchise) %></td>
-        <td><%= link_to 'Destroy', [@client, location, franchise], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', client_location_franchise_path(@client, @location, franchise) %></td>
+        <td><%= link_to 'Edit', edit_client_location_franchise_path(@client, @location, franchise) %></td>
+        <td><%= link_to 'Destroy', [@client, @location, franchise], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Franchise', new_client_location_franchise_path(@client) %>
+<%= link_to 'New Franchise', new_client_location_franchise_path(@client, @location) %>

@@ -2,11 +2,14 @@ Corpservice::Application.routes.draw do
   
   resources :workorders
   resources :clients do
-    resources :locations
-      resources :franchises
-        resources :workorders
+    resources :locations do
+      resources :franchises do
+        resources :workorders do
+        end
+      end
+    end
   end
-  root 'workorders#index'
+  root 'clients#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

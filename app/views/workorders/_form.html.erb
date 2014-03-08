@@ -1,4 +1,4 @@
-<%= form_for(@workorder) do |f| %>
+<%= form_for( [@client,@location,@franchise, @workorder ]) do |f| %>
   <% if @workorder.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@workorder.errors.count, "error") %> prohibited this workorder from being saved:</h2>
@@ -65,8 +65,9 @@
   </div>
   <div class="field">
     <%= f.label :location_id %><br>
-    <%= f.text_field :location_id %>
+    <%= f.text_field :location_id, value: "#{@location.id}" %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

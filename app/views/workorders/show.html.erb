@@ -62,13 +62,13 @@
 
 <p>
   <strong>Franchises:</strong>
-  <%= @workorder.Franchises %>
+  <%= @workorder.franchise_id %>
 </p>
 
 <p>
   <strong>Locations:</strong>
-  <%= @workorder.Locations %>
+  <%= @workorder.location_id%>
 </p>
 
-<%= link_to 'Edit', edit_workorder_path(@workorder) %> |
-<%= link_to 'Back', workorders_path %>
+<%= link_to 'Edit', edit_client_location_franchise_workorder_path(@client,@location, @franchise,@workorder) %> |
+<%= link_to 'Back', client_location_franchise_workorders_path(@client,@location, @franchise) %>

@@ -1,10 +1,9 @@
 class LocationsController < ApplicationController
-  before_action :load_client, :set_location, only: [:show, :edit, :update, :destroy]
-
+  before_action :load_client, only: [:index,:show, :edit, :update, :destroy]
+before_action :set_location, only: [:show, :edit, :update, :destroy]
   # GET /locations
   # GET /locations.json
   def index
-    @client = Client.find(params[:client_id])
     @client.locations.order(:zip)
     #@locations = @client.locations.all
   end
@@ -49,8 +48,6 @@ class LocationsController < ApplicationController
   # PATCH/PUT /locations/1
   # PATCH/PUT /locations/1.json
   def update
-    @location = @client.location.find(params[:id])
-    
     respond_to do |format|
       if @location.update(location_params)
         format.html { redirect_to [@client, @location], notice: 'Location was successfully updated.' }
@@ -65,16 +62,8 @@ class LocationsController < ApplicationController
   # DELETE /locations/1
   # DELETE /locations/1.json
   def destroy
-    
-    @client = Client.find(params[:client_id])
-    @location = @client.locations.find(params[:id])
     @location.destroy
-    redirect_to client_location_path(@client)
-    
-#    @location.destroy
-#    respond_to do |format|
-#      format.html { redirect_to locations_url }
-#      format.json { head :no_content }
+    redirect_to client_locations_path(@client)
   end
 
   private
@@ -84,7 +73,7 @@ class LocationsController < ApplicationController
     end
 
     def set_location
-      @location = @client.locations.find(params[:id])
+      @location = Location.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

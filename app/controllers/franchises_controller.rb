@@ -1,41 +1,38 @@
 class FranchisesController < ApplicationController
-  before_action :load_client, :load_location, :set_franchise, only: [:show, :edit, :update, :destroy]
+  before_action  :set_franchise, only: [:show, :edit, :update, :destroy]
+before_action :load_client, :load_location, only: [:new, :create, :show, :index, :edit,:destroy, :update]
 
   # GET /franchises
   # GET /franchises.json
   def index
-    @client = Client.find(params[:client_id])
-    @location = Client.location.find(params[:location_id])
-    @franchise - Client.location.franchise.order(:name)
+    @franchises = @location.franchises.order(:name)
     #@franchises = Franchise.all
   end
 
   # GET /franchises/1
   # GET /franchises/1.json
   def show
-    @franchise = @client.location.franchise.find(params[:id])
+    @franchise = Franchise.find(params[:id])
   end
 
   # GET /franchises/new
   def new
-    @client = Client.find(params[:client_id])
-    @location = Client.location.find(params[:client_id])
-    @franchise = @client.location.franchise.new
+    @franchise = @location.franchises.new
   end
 
   # GET /franchises/1/edit
   def edit
-    @franchise = @client.location.franchises.find(params[:id])
+    
   end
 
   # POST /franchises
   # POST /franchises.json
   def create
-    @franchise = @client.franchises.new(franchise_params)
+    @franchise = @location.franchises.new(franchise_params)
 
     respond_to do |format|
       if @franchise.save
-        format.html { redirect_to [@client, @franchise], notice: 'Franchise was successfully created.' }
+        format.html { redirect_to [@client, @location, @franchise], notice: 'Franchise was successfully created.' }
         format.json { render action: 'show', status: :created, location: @franchise }
       else
         format.html { render action: 'new' }
@@ -63,7 +60,7 @@ class FranchisesController < ApplicationController
   def destroy
     @franchise.destroy
     respond_to do |format|
-      format.html { redirect_to client_location_franchises_path(@client) }
+      format.html { redirect_to client_location_franchises_path(@client, @location) }
       format.json { head :no_content }
     end
   end
@@ -79,7 +76,7 @@ class FranchisesController < ApplicationController
     end
 
     def load_location
-      @location = Client.location.find(params[:client_id])
+      @location = Location.find(params[:location_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

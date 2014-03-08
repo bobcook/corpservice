@@ -1,4 +1,4 @@
-<%= form_for(@client, @location, @franchise) do |f| %>
+<%= form_for([@client, @location, @franchise]) do |f| %>
   <% if @franchise.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@franchise.errors.count, "error") %> prohibited this franchise from being saved:</h2>

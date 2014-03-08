@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @workorder %> |
-<%= link_to 'Back', workorders_path %>
+<%= link_to 'show', client_location_franchise_workorder_path(@client,@location, @franchise,@workorder) %> |
+<%= link_to 'Back', client_location_franchise_workorders_path(@client,@location, @franchise) %>

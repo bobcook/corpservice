@@ -13,6 +13,8 @@ one:
   invoice: 2014-02-05
   invoice_total: 1.5
   notes: MyText
+  location_id: 1
+  franchise_id: 1
 
 two:
   number: MyString
@@ -27,4 +29,5 @@ two:
   invoice: 2014-02-05
   invoice_total: 1.5
   notes: MyText
-
+  location_id: 1
+  franchise_id: 1

@@ -40,6 +40,43 @@
   <%= @location.email %>
 </p>
 
+
+
 <%= link_to 'Edit', edit_client_location_path(@client, @location) %> |
 <%= link_to 'Back', client_locations_path(@client) %> |
-<%= link_to 'Add Franchise', new_client_franchise_path(@client, @franchise) %>
+<%= link_to 'Add Franchise', new_client_location_franchise_path(@client,@location) %>
+
+
+<h1>Listing franchises</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Location</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @location.franchises.each do |franchise| %>
+      <tr>
+        <td><%= franchise.number %></td>
+        <td><%= franchise.name %></td>
+        <td><%= franchise.phone %></td>
+        <td><%= franchise.email %></td>
+        <td><%= franchise.location_id %></td>
+        <td><%= link_to 'Show', client_location_franchise_path(@client, @location, franchise) %></td>
+        <td><%= link_to 'Edit', edit_client_location_franchise_path(@client, @location, franchise) %></td>
+        <td><%= link_to 'Destroy', [@client, @location, franchise], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
