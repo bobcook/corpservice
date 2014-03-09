@@ -1,4 +1,4 @@
-<h1>Listing workorders</h1>
+<h1>Listing Workorders</h1>
 
 <table>
   <thead>
@@ -40,9 +40,9 @@
         <td><%= workorder.notes %></td>
         <td><%= workorder.franchise %></td>
         <td><%= workorder.location %></td>
-        <td><%= link_to 'Show', workorder %></td>
-        <td><%= link_to 'Edit', edit_workorder_path(workorder) %></td>
-        <td><%= link_to 'Destroy', workorder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', client_location_franchise_workorder_path(@client, @location, @franchise, @workorder) %></td>
+        <td><%= link_to 'Edit', edit_client_location_franchise_workorder_path(@client, @location, @franchise, workorder) %></td>
+        <td><%= link_to 'Destroy', [@client, @location, @franchise, @workorder], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
