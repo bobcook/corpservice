@@ -1,6 +1,6 @@
 class WorkordersController < ApplicationController
   before_action :set_workorder, only: [:show, :edit, :update, :destroy]
-  before_action :load_client, :load_location,  :load_franchise, only: [:destroy, :new, :edit, :update, :show, :index, :create]
+  before_action :load_client, :load_location, :load_franchise, only: [:destroy, :new, :edit, :update, :show, :index, :create]
 
   # GET /workorders
   # GET /workorders.json
@@ -26,7 +26,7 @@ class WorkordersController < ApplicationController
   # POST /workorders.json
   def create
   
-    @workorder = Workorder.new(workorder_params)
+    @workorder = @franchise.workorders.new(workorder_params)
 
     respond_to do |format|
       if @workorder.save
@@ -83,6 +83,8 @@ class WorkordersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workorder_params
-      params.require(:workorder).permit(:number, :po, :estimate_id, :line_item, :quantity, :price, :previous_action, :next_action_due, :schedule, :invoice, :invoice_total, :notes, :franchise_id, :location_id)
+      params.require(:workorder).permit(:number, :po, :estimate_id, :line_item, :quantity, :price, :previous_action, :next_action_due, :schedule, :invoice, :invoice_total, :notes, :franchise_id, :location_id,
+                franchise: [:number, :name, :phone, :email, :location_id], 
+                location: [:id, :code, :address1, :address2, :city, :state, :zip, :phone, :email, :client_id])
     end
 end

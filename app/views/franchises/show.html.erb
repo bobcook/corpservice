@@ -70,8 +70,6 @@
         <td><%= workorder.invoice %></td>
         <td><%= workorder.invoice_total %></td>
         <td><%= workorder.notes %></td>
-        <td><%= workorder.franchise.id %></td>
-        <td><%= workorder.location.id %></td>
         <td><%= link_to 'Show', [@client,@location, @franchise,workorder] %></td>
         <td><%= link_to 'Edit', edit_client_location_franchise_workorder_path(@client,@location, @franchise,workorder) %></td>
         <td><%= link_to 'Destroy', [@client,@location, @franchise,workorder], method: :delete, data: { confirm: 'Are you sure?' } %></td>
